@@ -73,7 +73,7 @@ namespace WorkShop03.Areas.Identity.Pages.Account
         {
 
             [Required]
-
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
             [Required]
 
@@ -127,6 +127,10 @@ namespace WorkShop03.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.MinimumPay = Input.MinimumPay;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
