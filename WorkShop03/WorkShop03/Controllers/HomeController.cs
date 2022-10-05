@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WorkShop03.Data;
 using WorkShop03.Models;
 
 namespace WorkShop03.Controllers
@@ -7,15 +8,17 @@ namespace WorkShop03.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_db.Advertisements);
         }
 
         public IActionResult Privacy()
