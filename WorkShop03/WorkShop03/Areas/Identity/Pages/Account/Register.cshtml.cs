@@ -80,7 +80,7 @@ namespace WorkShop03.Areas.Identity.Pages.Account
             public string LastName { get; set; }
             [Required]
 
-            public string MinimumPay { get; set; }
+            public int MinimumPay { get; set; }
 
 
 
