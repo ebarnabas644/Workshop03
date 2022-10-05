@@ -13,5 +13,14 @@ namespace WorkShop03.Data
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Advertisement>()
+                .HasMany(x => x.Subscribed)
+                .WithMany(x => x.Subscribed);
+
+            base.OnModelCreating(builder);
+        }
     }
 }

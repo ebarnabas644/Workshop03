@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WorkShop03.Models
 {
@@ -11,6 +12,14 @@ namespace WorkShop03.Models
         public string LastName { get; set; }
 
         public int MinimumPay { get; set; }
+
+        [NotMapped]
+        public virtual List<Advertisement> Subscribed { get; set; }
+
+        public User() : base()
+        {
+            Subscribed = new List<Advertisement>();
+        }
 
     }
 }

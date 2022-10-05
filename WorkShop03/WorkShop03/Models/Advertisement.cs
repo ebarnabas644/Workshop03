@@ -18,9 +18,13 @@ namespace WorkShop03.Models
 
         public int Pay { get; set; }
 
+        public List<User> Subscribed { get; set; }
+
         public Advertisement()
         {
             Uid = Guid.NewGuid().ToString();
+
+            Subscribed = new List<User>();
         }
     }
 }
