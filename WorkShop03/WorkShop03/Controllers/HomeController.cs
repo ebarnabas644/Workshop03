@@ -23,9 +23,11 @@ namespace WorkShop03.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_db.Advertisements);
+            var pri = this.User;
+            var user = await userManager.GetUserAsync(pri);
+            return View(_db.Advertisements.Where(x => x.Pay >= user.MinimumPay));
         }
 
         [Authorize(Roles = "Admin")]
