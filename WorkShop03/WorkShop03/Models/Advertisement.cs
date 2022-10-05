@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WorkShop03.Models
 {
@@ -18,7 +19,8 @@ namespace WorkShop03.Models
 
         public int Pay { get; set; }
 
-        public List<User> Subscribed { get; set; }
+        
+        public virtual List<User> Subscribed { get; set; }
 
         public Advertisement()
         {
