@@ -27,7 +27,14 @@ namespace WorkShop03.Controllers
         {
             var pri = this.User;
             var user = await userManager.GetUserAsync(pri);
-            return View(_db.Advertisements.Where(x => x.Pay >= user.MinimumPay));
+            if (user != null)
+            {
+                return View(_db.Advertisements.Where(x => x.Pay >= user.MinimumPay));
+            }
+
+            return View(_db.Advertisements);
+
+
         }
 
         [Authorize(Roles = "Admin")]
