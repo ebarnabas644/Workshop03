@@ -58,7 +58,23 @@ namespace WorkShop03.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Subscribe(string id)
+        {
+            var pri = this.User;
+            var user = await userManager.GetUserAsync(pri);
+            if (user != null)
+            {
+                var ad = _db.Advertisements.FirstOrDefault(x => x.Uid == id);
 
+                if (ad != null)
+                {
+                    ad.Subscribed.Add(user);
+                }
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
         public async Task<IActionResult> DelegateAdmin()
         {
             var pri = this.User;
