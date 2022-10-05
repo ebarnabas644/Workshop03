@@ -16,3 +16,52 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.job-panel {
+    margin: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+    border-radius: 5px;
+}
+
+.job-detail-container{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.job-detail {
+    width: 33%;
+}
+
+.job-title{
+    font-size: 3em;
+    text-align: center;
+}
+
+.job-subscribe-button {
+    display: flex;
+    background-color: lightblue;
+    width: 100%;
+    justify-content: center;
+}
+
+.job-subscribe-button:hover{
+    background-color: cornflowerblue;
+
+}
+
+.job-subscribe-button a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+
+.job-detail-description{
+    text-align: center;
+}
+
+.job-detail-title {
+    font-size: 1.5em;
+    text-align: center;
+}

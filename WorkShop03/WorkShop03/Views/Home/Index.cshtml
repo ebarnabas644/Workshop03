@@ -9,5 +9,27 @@
 
 @foreach (var item in Model)
 {
-    <p>@item.Name</p>
+    <div class="job-panel">
+        <p class="job-title">@item.Name</p>
+        <div class="job-detail-container">
+            <div class="job-detail">
+                <p class="job-detail-title">Pozíció</p>
+                <p class="job-detail-description">@item.Position</p>
+            </div>
+            <div class="job-detail">
+                <p class="job-detail-title">Leírás</p>
+                <p class="job-detail-description">@item.Description</p>
+            </div>
+            <div class="job-detail">
+                <p class="job-detail-title">Fizetés</p>
+                <p class="job-detail-description">@item.Pay Ft/óra</p>
+            </div>
+        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="job-subscribe-button">
+                <a href="">Érdekel</a>
+        </div>
+        }
+    </div>
 }
