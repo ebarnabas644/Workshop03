@@ -58,7 +58,6 @@ namespace WorkShop03.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
         public async Task<IActionResult> Subscribe(string id)
         {
             var pri = this.User;
@@ -70,6 +69,7 @@ namespace WorkShop03.Controllers
                 if (ad != null)
                 {
                     ad.Subscribed.Add(user);
+                    _db.SaveChanges();
                 }
             }
             return RedirectToAction(nameof(Index));

@@ -25,10 +25,17 @@
                 <p class="job-detail-description">@item.Pay Ft/óra</p>
             </div>
         </div>
+        @if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
+        {
+            @foreach (var subs in item.Subscribed)
+            {
+                <p>@subs.FirstName subs.LastName</p>
+            }
+        }
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="job-subscribe-button">
-                <a href="/Home/Subscribe/?id=@item.Uid">Érdekel</a>
+                <a href="/Home/Subscribe?id=@item.Uid">Érdekel</a>
         </div>
         }
     </div>
