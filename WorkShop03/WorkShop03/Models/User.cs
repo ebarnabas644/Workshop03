@@ -13,7 +13,6 @@ namespace WorkShop03.Models
 
         public int MinimumPay { get; set; }
 
-        [NotMapped]
         public virtual List<Advertisement> Subscribed { get; set; }
 
         public User() : base()

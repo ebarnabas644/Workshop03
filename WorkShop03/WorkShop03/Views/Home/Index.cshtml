@@ -29,11 +29,12 @@
         {
             @foreach (var subs in item.Subscribed)
             {
-                <p>@subs.FirstName subs.LastName</p>
+                <p>@subs.FirstName @subs.LastName</p>
             }
         }
         @if (SignInManager.IsSignedIn(User))
         {
+            <p>Jelentkezések száma: @item.Subscribed.Count</p>
             <div class="job-subscribe-button">
                 <a href="/Home/Subscribe?id=@item.Uid">Érdekel</a>
         </div>
